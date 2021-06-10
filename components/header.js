@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -6,7 +6,6 @@ export default function Header() {
       <Link href="/">
         <a className="hover:underline">Blog</a>
       </Link>
-      .
     </h2>
-  )
+  );
 }

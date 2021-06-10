@@ -1,5 +1,7 @@
-function About() {
-  return <div>About</div>
-}
+import React from 'react';
 
-export default About
+const About = () => {
+  return <div>Aboutus</div>;
+};
+
+export default About;
