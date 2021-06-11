@@ -2,8 +2,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 const Header = ({ menuItems: { nodes } }) => {
-  console.log(nodes);
-
   return (
     <div id="header" className="header bg-color">
       <div className="container mx-auto ">
