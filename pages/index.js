@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Container from '../components/container';
-import MoreStories from '../components/more-stories';
-import HeroPost from '../components/hero-post';
+// import MoreStories from '../components/more-stories';
+// import HeroPost from '../components/hero-post';
 import TopBar from '../components/topbar';
 import Header from '../components/header';
 import Intro from '../components/intro';
@@ -29,7 +29,7 @@ export default function Index({
         </Head>
         <Intro />
         <Container>
-          {heroPost && (
+          {/* {heroPost && (
             <HeroPost
               title={heroPost.title}
               coverImage={heroPost.featuredImage?.node}
@@ -38,8 +38,8 @@ export default function Index({
               slug={heroPost.slug}
               excerpt={heroPost.excerpt}
             />
-          )}
-          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+          )} */}
+          {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
           <Courses courses={nodes} />
         </Container>
       </Layout>
