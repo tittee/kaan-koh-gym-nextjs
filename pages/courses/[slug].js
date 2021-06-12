@@ -7,29 +7,24 @@ import Header from '../../components/header';
 import PostHeader from '../../components/post-header';
 import SectionSeparator from '../../components/section-separator';
 import Layout from '../../components/layout';
-import {
-  getAllPostsWithSlug,
-  getPostAndMorePosts,
-  getMenu,
-} from '../../lib/api';
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api';
 import PostTitle from '../../components/post-title';
 import Head from 'next/head';
 import { CMS_NAME } from '../../lib/constants';
 import Tags from '../../components/tags';
 
-export default function Post({ post, posts, preview, menu: { menuItems } }) {
+export default function Course({ post, posts, preview }) {
   const router = useRouter();
   const morePosts = posts?.edges;
-  const menus = menuItems?.nodes;
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />;
   }
 
   return (
-    <Layout preview={preview} menus={menus}>
+    <Layout preview={preview}>
       <Container>
-        {/* <Header /> */}
+        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
@@ -66,21 +61,14 @@ export default function Post({ post, posts, preview, menu: { menuItems } }) {
   );
 }
 
-export async function getStaticProps({
-  params,
-  preview = false,
-  previewData,
-  menuName = 'Header',
-}) {
+export async function getStaticProps({ params, preview = false, previewData }) {
   const data = await getPostAndMorePosts(params.slug, preview, previewData);
-  const menu = await getMenu(menuName);
 
   return {
     props: {
       preview,
       post: data.post,
       posts: data.posts,
-      menu,
     },
   };
 }

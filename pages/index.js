@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Container from '../components/container';
-// import MoreStories from '../components/more-stories';
-// import HeroPost from '../components/hero-post';
+import MoreStories from '../components/more-stories';
+import HeroPost from '../components/hero-post';
 import TopBar from '../components/topbar';
 import Header from '../components/header';
 import Intro from '../components/intro';
@@ -18,18 +18,18 @@ export default function Index({
 }) {
   const heroPost = edges[0]?.node;
   const morePosts = edges.slice(1);
+  const menus = menuItems?.nodes;
 
   return (
     <>
-      <Layout preview={preview}>
-        <TopBar />
-        <Header menuItems={menuItems} />
+      <Layout preview={preview} menus={menus}>
+        {/* <Header menuItems={menuItems} /> */}
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>มวยไทยยิม {CMS_NAME}</title>
         </Head>
         <Intro />
         <Container>
-          {/* {heroPost && (
+          {heroPost && (
             <HeroPost
               title={heroPost.title}
               coverImage={heroPost.featuredImage?.node}
@@ -38,8 +38,8 @@ export default function Index({
               slug={heroPost.slug}
               excerpt={heroPost.excerpt}
             />
-          )} */}
-          {/* {morePosts.length > 0 && <MoreStories posts={morePosts} />} */}
+          )}
+          {morePosts.length > 0 && <MoreStories posts={morePosts} />}
           <Courses courses={nodes} />
         </Container>
       </Layout>

@@ -9,7 +9,7 @@ export default function TopBar() {
             <div className="flex text-white justify-between items-center">
               <ul className="text-xs">
                 <li className="inline-block mr-4">
-                  Call us: <Link href="/">+61 3 8376 6284</Link>
+                  Call us: <Link href="tel:+66656494291">+66 65 649 4291</Link>
                 </li>
                 <li className="inline-block">
                   Email:{' '}

@@ -1,7 +1,9 @@
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
-const Header = ({ menuItems: { nodes } }) => {
+const Header = ({ menus }) => {
+  console.log(menus);
+
   return (
     <div id="header" className="header bg-color">
       <div className="container mx-auto ">
@@ -27,7 +29,7 @@ const Header = ({ menuItems: { nodes } }) => {
                 {/* <!-- //mobile menu button -->*/}
                 <nav id="mainnav" className="mainnav">
                   <ul className="menu block">
-                    {nodes.map((data) => (
+                    {menus.map((data) => (
                       <li key={data.id} className="inline-block">
                         <Link as={`${data.path}`} href="[path]">
                           <a
