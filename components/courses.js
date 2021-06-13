@@ -10,7 +10,7 @@ const Courses = ({ courses }) => {
       <div className="container">
         <div className="">
           <div className="w-full">
-            <div className="mb-6">
+            <div className="mb-6 md:mb-10">
               <h2 className="text-4xl font-bold ">Our Course</h2>
               <div className="h-2 w-24 bg-green-600"></div>
             </div>
@@ -18,7 +18,7 @@ const Courses = ({ courses }) => {
         </div>
         <div className="">
           <div className="">
-            <div className="grid grid-cols-3 grid-rows-2 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 gap-4">
               {courses.map((data) => (
                 <article
                   className="w-full relative cursor-pointer"
@@ -29,7 +29,7 @@ const Courses = ({ courses }) => {
                       <img
                         src={data.featuredImage.node.sourceUrl}
                         alt={data.altText}
-                        className="w-full max-h-44 h-44 object-cover object-center"
+                        className="w-full md:max-h-44 md:h-44 xl:max-h-60 xl:h-60 object-cover object-center"
                       />
                     </Link>
                     <ul className="absolute top-0 bg-blue-900 px-4 pt-0 pb-2 text-center">

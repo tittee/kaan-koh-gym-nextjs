@@ -1,10 +1,30 @@
-const colors = require('tailwindcss/colors');
+const colors = require('./colors');
+
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
-  purge: [],
+  plugins: [
+    plugin(function ({ addVariant, e }) {
+      addVariant('first-child', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => {
+          return `.${e(`first-child${separator}${className}`)}:first-child`;
+        });
+      });
+    }),
+  ],
+};
+
+module.exports = {
+  purge: ['./components/**/*.js', './pages/**/*.js'],
   presets: [],
-  darkMode: false, // or 'media' or 'class'
+  dark: 'class',
+  experimental: 'all',
+  future: {
+    purgeLayersByDefault: true,
+    removeDeprecatedGapUtilities: true,
+  },
   theme: {
+    extend: {},
     screens: {
       sm: '640px',
       md: '768px',
@@ -15,7 +35,6 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       current: 'currentColor',
-
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -242,40 +261,7 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
-      sans: [
-        'ui-sans-serif',
-        'system-ui',
-        '-apple-system',
-        'BlinkMacSystemFont',
-        '"Segoe UI"',
-        'Roboto',
-        '"Helvetica Neue"',
-        'Arial',
-        '"Noto Sans"',
-        'sans-serif',
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-        '"Noto Color Emoji"',
-      ],
-      serif: [
-        'ui-serif',
-        'Georgia',
-        'Cambria',
-        '"Times New Roman"',
-        'Times',
-        'serif',
-      ],
-      mono: [
-        'ui-monospace',
-        'SFMono-Regular',
-        'Menlo',
-        'Monaco',
-        'Consolas',
-        '"Liberation Mono"',
-        '"Courier New"',
-        'monospace',
-      ],
+      kanit: ['Kanit', 'Arial', 'sans-serif'],
     },
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -831,6 +817,7 @@ module.exports = {
     'disabled',
   ],
   variants: {
+    extend: {},
     accessibility: ['responsive', 'focus-within', 'focus'],
     alignContent: ['responsive'],
     alignItems: ['responsive'],

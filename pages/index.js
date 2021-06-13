@@ -9,6 +9,7 @@ import Courses from '../components/courses';
 import Layout from '../components/layout';
 import { getAllPostsForHome, getMenu, getAllCourses } from '../lib/api';
 import { CMS_NAME } from '../lib/constants';
+import { useRouter } from 'next/router';
 
 export default function Index({
   allPosts: { edges },

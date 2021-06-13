@@ -1,0 +1,52 @@
+.hamburger {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  transition: all 0.25s;
+  outline: 0;
+  position: relative;
+}
+
+.hamburger span {
+  @apply ml-auto;
+  @apply mr-auto;
+  @apply left-0;
+  @apply right-0;
+
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background: #000;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+.hamburger span:nth-child(1) {
+  transform: translateY(-5px);
+}
+
+.hamburger span:nth-child(2) {
+  transform: translateY(0px);
+}
+
+.hamburger span:nth-child(3) {
+  transform: translateY(5px);
+}
+
+.hamburger :hover span {
+  background: #333;
+}
+
+.hamburger.open {
+  transform: rotate(90deg);
+  transform: translateY(-1px);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(0px);
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(0px);
+}
